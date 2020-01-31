@@ -13,5 +13,6 @@ public class BootstrapInstaller : MonoInstaller
     {
         Container.BindInstance(_playerScore).AsSingle().NonLazy();
         Container.BindInstance(_sceneManagerService).AsSingle().NonLazy();
+        Container.BindInterfacesTo<PromiseTimerService>().AsSingle().NonLazy();
     }
 }

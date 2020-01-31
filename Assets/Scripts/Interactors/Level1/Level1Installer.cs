@@ -1,7 +1,7 @@
 using Zenject;
 using UnityEngine;
 
-public class GameSceneInstaller : MonoInstaller
+public class Level1Installer : MonoInstaller
 {
     [SerializeField] private DragTarget _draggableTarget;
     

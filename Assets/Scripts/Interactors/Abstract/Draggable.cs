@@ -6,10 +6,11 @@ using Vector3 = UnityEngine.Vector3;
 
 public abstract class Draggable : MonoBehaviour
 {
-    private Vector3 _clickStartPos;
-    private bool _isBeingHeld;
+    private  Vector3 _clickStartPos;
+    private  bool _isBeingHeld;
+    protected  bool _inputEnabled = true;
 
-    private Transform _transform;
+    protected Transform _transform;
 
     [SerializeField] private bool limitXAxis;
     [SerializeField] private bool limitYAxis;
@@ -18,8 +19,8 @@ public abstract class Draggable : MonoBehaviour
     private Camera _mainCamera;
 
     [Inject] 
-    private DragTarget _dragTarget; 
-    
+    private DragTarget _dragTarget;
+
     private void Start()
     {
         _transform = GetComponent<Transform>();
@@ -27,7 +28,7 @@ public abstract class Draggable : MonoBehaviour
 
     private void Update()
     {
-        if (_isBeingHeld)
+        if (_inputEnabled && _isBeingHeld)
         {
             var mousePos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
             var newPos = mousePos - _clickStartPos;
@@ -62,7 +63,7 @@ public abstract class Draggable : MonoBehaviour
         {
             if (_dragTarget.Contains(_transform))
             {
-                OnDrag();
+                OnDrag(_dragTarget.DragTransform);
             }
         }
     }
@@ -72,8 +73,13 @@ public abstract class Draggable : MonoBehaviour
         StopDrag();
     }
 
-    protected virtual void OnDrag()
+    protected virtual void OnDrag(Transform dragTransform)
     {
         
+    }
+
+    public void ChangeInputState(bool enabled)
+    {
+        _inputEnabled = enabled;
     }
 }

@@ -4,20 +4,22 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagerService : MonoBehaviour
 {
-    //starting scene 0 is bootstrap scene
-    private int _currentLevelIndex = 0;
-    
-    public void LoadNextScene(bool unloadCurrentScene)
+    public void UnloadScene(ScenesEnum scene)
     {
-        if (unloadCurrentScene)
+        SceneManager.UnloadSceneAsync((int)scene);   
+    }
+    
+    public void LoadScene(ScenesEnum scene)
+    {
+        if (!SceneManager.GetSceneByBuildIndex((int)scene).isLoaded)
         {
-            SceneManager.UnloadSceneAsync(_currentLevelIndex);
+            SceneManager.LoadScene((int)scene, LoadSceneMode.Additive);
         }
-        
-        _currentLevelIndex++;
-        if (!SceneManager.GetSceneByBuildIndex(_currentLevelIndex).isLoaded)
-        {
-            SceneManager.LoadScene(_currentLevelIndex, LoadSceneMode.Additive);
-        }
+    }
+    
+    public void UnloadSceneAndLoadNext(ScenesEnum scene)
+    {
+        UnloadScene(scene);
+        LoadScene(scene+1);
     }
 }

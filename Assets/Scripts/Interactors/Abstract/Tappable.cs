@@ -5,16 +5,23 @@ using UnityEngine;
 
 public abstract class Tappable : MonoBehaviour
 {
+    private bool _inputEnabled = true;
+    
     private void OnMouseDown()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (_inputEnabled && Input.GetMouseButtonDown(0))
         {
             OnTap();
         }
     }
 
-    protected void OnTap()
+    protected virtual void OnTap()
     {
         
+    }
+    
+    public void ChangeInputState(bool enabled)
+    {
+        _inputEnabled = enabled;
     }
 }

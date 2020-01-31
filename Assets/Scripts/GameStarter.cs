@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
 
-public class Bootstrapper : MonoBehaviour
+public class GameStarter : MonoBehaviour
 {
     [Inject] private SceneManagerService _sceneManagerService;
     
     void Start()
     {
-        _sceneManagerService.LoadNextScene(false);
+        _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.GameStarter);   
     }
 }
