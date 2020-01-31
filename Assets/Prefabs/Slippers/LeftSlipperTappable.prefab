@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &980032929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705653346369906288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8424ba0df88b4c33a7c62877e786d6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2176921468486716970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10,12 +22,12 @@ PrefabInstance:
     - target: {fileID: 693070715561650266, guid: 51c7c87335f6845e18f0c4b60b49c739,
         type: 3}
       propertyPath: m_Name
-      value: LeftSlipper
+      value: LeftSlipperTappable
       objectReference: {fileID: 0}
     - target: {fileID: 693070715561650278, guid: 51c7c87335f6845e18f0c4b60b49c739,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.85
       objectReference: {fileID: 0}
     - target: {fileID: 693070715561650278, guid: 51c7c87335f6845e18f0c4b60b49c739,
         type: 3}
@@ -25,7 +37,7 @@ PrefabInstance:
     - target: {fileID: 693070715561650278, guid: 51c7c87335f6845e18f0c4b60b49c739,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 693070715561650278, guid: 51c7c87335f6845e18f0c4b60b49c739,
         type: 3}
@@ -69,3 +81,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51c7c87335f6845e18f0c4b60b49c739, type: 3}
+--- !u!1 &1705653346369906288 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 693070715561650266, guid: 51c7c87335f6845e18f0c4b60b49c739,
+    type: 3}
+  m_PrefabInstance: {fileID: 2176921468486716970}
+  m_PrefabAsset: {fileID: 0}

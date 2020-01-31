@@ -7,6 +7,11 @@ public class TappableShoe : Tappable
 {
     [Inject] private SceneManagerService _sceneManagerService;
     [Inject] private LevelResolver _levelResolver;
+
+    [SerializeField] private Sprite _regularSprite;
+    [SerializeField] private Sprite _flippedSprite;
+    
+    
     private SpriteRenderer _spriteRenderer;
 
     private bool flipped;
@@ -24,13 +29,13 @@ public class TappableShoe : Tappable
 
     private void Flip()
     {
-        if (!flipped)
+        if (flipped)
         {
-            _spriteRenderer.color = Color.cyan;
+            _spriteRenderer.sprite = _regularSprite;
         }
         else
         {
-            _spriteRenderer.color = Color.white;
+            _spriteRenderer.sprite = _flippedSprite;
         }
         
         flipped = !flipped;
