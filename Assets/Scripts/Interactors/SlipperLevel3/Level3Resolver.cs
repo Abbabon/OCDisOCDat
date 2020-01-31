@@ -20,7 +20,7 @@ public class Level3Resolver : LevelResolver
             //TODO: end sequence
 
             _shoes.ForEach(shoe => shoe.ChangeInputState(false));
-            _promiseTimerService.WaitFor(1f).Then(() => _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.Level3));
+            _promiseTimerService.WaitFor(1f).Then(() => _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.SlipperLevel3));
         }
     }
 }

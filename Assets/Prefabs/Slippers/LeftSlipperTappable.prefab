@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8424ba0df88b4c33a7c62877e786d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _regularSprite: {fileID: 21300000, guid: 7eb64e187ec9a47b096c61a97aa10c4a, type: 3}
+  _flippedSprite: {fileID: 21300000, guid: 0ac05a5bdc6384658b5d66136d53d004, type: 3}
 --- !u!1001 &2176921468486716970
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,6 +12,6 @@ public class DraggableShoe : Draggable
         _transform.localPosition = new Vector3(draggedTransform.localPosition.x, draggedTransform.localPosition.y, _transform.localPosition.z);
 
         ChangeInputState(false);
-        _promiseTimerService.WaitFor(1f).Then(() => _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.Level1));
+        _promiseTimerService.WaitFor(1f).Then(() => _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.SlippersLevel1));
     }
 }

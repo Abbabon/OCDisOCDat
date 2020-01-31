@@ -2,9 +2,9 @@ public enum ScenesEnum
 {
     Bootstrap=0,
     GameStarter=1,
-    Level1=2,
-    Level2=3,
-    Level3=4,
+    SlippersLevel1=2,
+    SlippersLevel2=3,
+    SlipperLevel3=4,
     Level4=5,
     Level5=6,
     Level6=7,

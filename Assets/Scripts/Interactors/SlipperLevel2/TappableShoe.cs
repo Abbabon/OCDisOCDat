@@ -10,12 +10,10 @@ public class TappableShoe : Tappable
 
     [SerializeField] private Sprite _regularSprite;
     [SerializeField] private Sprite _flippedSprite;
-    
-    
+
     private SpriteRenderer _spriteRenderer;
 
-    private bool flipped;
-    public bool Flipped => flipped;
+    public bool Flipped;
 
     private void Start()
     {
@@ -29,16 +27,17 @@ public class TappableShoe : Tappable
 
     private void Flip()
     {
-        if (flipped)
-        {
-            _spriteRenderer.sprite = _regularSprite;
-        }
-        else
+        Flipped = !Flipped;
+        
+        if (Flipped)
         {
             _spriteRenderer.sprite = _flippedSprite;
         }
+        else
+        {
+            _spriteRenderer.sprite =  _regularSprite;
+        }
         
-        flipped = !flipped;
         _levelResolver.Resolve();
     }
 }

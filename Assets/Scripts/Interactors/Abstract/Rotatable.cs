@@ -13,8 +13,8 @@ public abstract class Rotatable : MonoBehaviour
     private bool _isBeingHeld;
     private bool _inputEnabled = true;
 
-    private Transform _transform;
-    [SerializeField] private List<float> RotateTargetValues;
+    protected Transform _transform;
+    [SerializeField] private float[] RotateTargetValues;
 
     [Inject] 
     private Camera _mainCamera;
@@ -48,7 +48,7 @@ public abstract class Rotatable : MonoBehaviour
             {
                 if (Math.Abs(_transform.localRotation.eulerAngles.z - rotateTargetValue) < TOLERANCE)
                 {
-                    OnRotateTarget();
+                    OnRotateTarget(rotateTargetValue);
                 }
             });
         }
@@ -76,7 +76,7 @@ public abstract class Rotatable : MonoBehaviour
         _isBeingHeld = false;
     }
 
-    protected virtual void OnRotateTarget()
+    protected virtual void OnRotateTarget(float rotationAngle)
     {
             
     }
