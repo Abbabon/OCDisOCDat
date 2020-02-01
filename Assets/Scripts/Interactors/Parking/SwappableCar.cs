@@ -6,6 +6,7 @@ public class SwappableCar : Draggable
 {
     [Inject] private SceneManagerService _sceneManagerService;
     [Inject] private IPromiseTimerService _promiseTimerService;
+    [Inject] private SoundService _soundService;
 
     [SerializeField] private SwappableCar _sisterCar;
     [SerializeField] private DragTarget _dragTarget;
@@ -25,6 +26,9 @@ public class SwappableCar : Draggable
                 _sisterCar.MoveToTransform(_sisterCar.DragTarget.transform);
                 _sisterCar.ChangeInputState(false);
         
+                _soundService.PlaySoundEffect(SoundService.SoundEffects.CarSwap);
+                _soundService.PlaySoundEffect(SoundService.SoundEffects.Good5);
+                
                 ChangeInputState(false);
                 _promiseTimerService.WaitFor(1f).Then(() => _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.CarsLevel2));
             }

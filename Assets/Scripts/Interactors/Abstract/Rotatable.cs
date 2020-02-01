@@ -70,10 +70,23 @@ public abstract class Rotatable : MonoBehaviour
     private void StartRotate()
     {
         _isBeingHeld = true;
+        OnStartRotate();
+        
     }
     private void StopRotate()
     {
         _isBeingHeld = false;
+        OnStopRotate();
+    }
+
+    protected virtual void OnStartRotate()
+    {
+        
+    }
+    
+    protected virtual void OnStopRotate()
+    {
+        
     }
 
     protected virtual void OnRotateTarget(float rotationAngle)

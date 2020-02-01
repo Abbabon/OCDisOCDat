@@ -7,6 +7,7 @@ public class TappableShoe : Tappable
 {
     [Inject] private SceneManagerService _sceneManagerService;
     [Inject] private LevelResolver _levelResolver;
+    [Inject] private SoundService _soundService;
 
     [SerializeField] private Sprite _regularSprite;
     [SerializeField] private Sprite _flippedSprite;
@@ -32,10 +33,12 @@ public class TappableShoe : Tappable
         if (Flipped)
         {
             _spriteRenderer.sprite = _flippedSprite;
+            _soundService.PlaySoundEffect(SoundService.SoundEffects.FlipUp);
         }
         else
         {
             _spriteRenderer.sprite =  _regularSprite;
+            _soundService.PlaySoundEffect(SoundService.SoundEffects.FlipDown);
         }
         
         _levelResolver.Resolve();

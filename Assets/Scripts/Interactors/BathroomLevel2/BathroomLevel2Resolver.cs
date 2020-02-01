@@ -7,6 +7,7 @@ public class BathroomLevel2Resolver : LevelResolver
 {
     [Inject] private SceneManagerService _sceneManagerService;
     [Inject] private IPromiseTimerService _promiseTimerService;
+    [Inject] private SoundService _soundService;
 
     [SerializeField] private RotatableMedicine[] medicines;
     
@@ -15,6 +16,7 @@ public class BathroomLevel2Resolver : LevelResolver
     {
         if (medicines.All(medicine => medicine.Flipped))
         {
+            _soundService.PlaySoundEffect(SoundService.SoundEffects.Good3);
             _promiseTimerService.WaitFor(1f).Then(() => _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.BathroomLevel2));
         }
     }

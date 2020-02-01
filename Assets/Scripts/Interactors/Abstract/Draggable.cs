@@ -59,6 +59,7 @@ public abstract class Draggable : MonoBehaviour
 
     private void StartDrag()
     {
+        OnStartDrag();
         _dragStartPos = _transform.localPosition;
         var mousePos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
         _clickStartPos = mousePos - _transform.localPosition;
@@ -67,6 +68,7 @@ public abstract class Draggable : MonoBehaviour
     private void StopDrag()
     {
         _isBeingHeld = false;
+        OnEndDrag();
         
         if (!_checkContinuously)
             OnDrag();
@@ -78,6 +80,16 @@ public abstract class Draggable : MonoBehaviour
     }
 
     protected virtual void OnDrag()
+    {
+        
+    }
+    
+    protected virtual void OnStartDrag()
+    {
+        
+    }
+    
+    protected virtual void OnEndDrag()
     {
         
     }

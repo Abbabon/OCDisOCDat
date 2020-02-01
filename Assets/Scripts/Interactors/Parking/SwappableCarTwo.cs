@@ -6,7 +6,8 @@ public class SwappableCarTwo : Draggable
 {
     [Inject] private SceneManagerService _sceneManagerService;
     [Inject] private IPromiseTimerService _promiseTimerService;
-
+    [Inject] private SoundService _soundService;
+    
     [SerializeField] private SwappableCarTwo _sisterCar;
     [SerializeField] private DragTarget _dragTarget;
 
@@ -28,9 +29,12 @@ public class SwappableCarTwo : Draggable
                 _spriteRenderer.enabled = false;
                 _crashObject.SetActive(true);
         
+                _soundService.PlaySoundEffect(SoundService.SoundEffects.CarCrash);
+                _soundService.StopMusic();
+                
                 ChangeInputState(false);
                 _sisterCar.ChangeInputState(false);
-                _promiseTimerService.WaitFor(1f).Then(() => _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.CarsLevel3));
+                _promiseTimerService.WaitFor(2f).Then(() => _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.CarsLevel3));
             }
             else
             {

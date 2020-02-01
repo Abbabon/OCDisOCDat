@@ -6,6 +6,7 @@ public class SwappableImage : Draggable
 {
     [Inject] private SceneManagerService _sceneManagerService;
     [Inject] private IPromiseTimerService _promiseTimerService;
+    [Inject] private SoundService _soundService;
 
     [SerializeField] private SwappableImage _sisterImage;
     [SerializeField] private DragTarget _dragTarget;
@@ -24,7 +25,10 @@ public class SwappableImage : Draggable
                 //swap locations
                 _sisterImage.MoveToTransform(_sisterImage.DragTarget.transform);
                 _sisterImage.ChangeInputState(false);
-        
+                
+                _soundService.PlaySoundEffect(SoundService.SoundEffects.PictureFlip);
+                _soundService.PlaySoundEffect(SoundService.SoundEffects.Good4);
+                
                 ChangeInputState(false);
                 _promiseTimerService.WaitFor(1f).Then(() => _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.GalleryLevel2));
             }

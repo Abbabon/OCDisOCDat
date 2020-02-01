@@ -7,7 +7,6 @@ public class SoundService : MonoBehaviour
     [SerializeField] private AudioSource _musicSource;
     [SerializeField] private AudioSource _sfxSource;
 
-    [SerializeField] private AudioClip _menuMusic;
     [SerializeField] private AudioClip _gameMusic;
 
     private Dictionary<SoundEffects, AudioClip> _sfx;
@@ -30,22 +29,44 @@ public class SoundService : MonoBehaviour
             }
         }
     }
-
-    public void PlayMenuMusic()
-    {
-        _musicSource.clip = _menuMusic;
-        _musicSource.Play();
-    }
-
     public void PlayGameMusic()
     {
         _musicSource.clip = _gameMusic;
         _musicSource.Play();
     }
+    
+    public void StopMusic()
+    {
+        _musicSource.Stop();
+    }
 
     public enum SoundEffects
     {
-
+        StartButton,
+        DraggingSlipper,
+        FlipUp,
+        FlipDown,
+        PillMove,
+        BottleFlipStart,
+        BottleFlipEnd,
+        ClostDoorClose,
+        CarSwap,
+        CarCrash,
+        Slushing,
+        SpoonDrag,
+        PictureFlip,
+        PictureSwing,
+        Worm,
+        Disgusting,
+        Good1,
+        Good2,
+        Good3,
+        Good4,
+        Good5,
+        Bad1,
+        Bad2,
+        Bad3,
+        Bad4
     }
 
     public void PlaySoundEffect(SoundEffects sfx)

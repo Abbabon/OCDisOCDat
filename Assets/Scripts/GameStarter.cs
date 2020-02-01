@@ -6,10 +6,11 @@ using Zenject;
 
 public class GameStarter : MonoBehaviour
 {
-    [Inject] private SceneManagerService _sceneManagerService;
+    [Inject] private SoundService _soundService;
     
     void Start()
     {
-        _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.GameStarter);   
+        Screen.SetResolution(1125, 2436, true);
+        _soundService.PlayGameMusic();   
     }
 }

@@ -6,6 +6,10 @@ public class RotatableImageTwo : Rotatable
 {
     [Inject] private SceneManagerService _sceneManagerService;
     [Inject] private IPromiseTimerService _promiseTimerService;
+    [Inject] private SoundService _soundService;
+
+    [SerializeField] private GameObject _worm;
+
     private bool _locked = false;
     
     protected override void OnRotateTarget(float rotationAngle)
@@ -16,7 +20,11 @@ public class RotatableImageTwo : Rotatable
         if (!_locked)
         {
             _locked = true;
-            _promiseTimerService.WaitFor(1f).Then(() => _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.GalleryLevel3));
+            
+            _worm.SetActive(true);
+            _soundService.PlaySoundEffect(SoundService.SoundEffects.Worm);
+            
+            _promiseTimerService.WaitFor(2.5f).Then(() => _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.GalleryLevel3));
         }
     }
 }

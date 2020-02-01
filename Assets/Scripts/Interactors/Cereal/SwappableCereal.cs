@@ -6,7 +6,8 @@ public class SwappableCereal : Draggable
 {
     [Inject] private SceneManagerService _sceneManagerService;
     [Inject] private IPromiseTimerService _promiseTimerService;
-
+    [Inject] private SoundService _soundService;
+    
     [SerializeField] private SwappableCereal _sisterCereal;
     [SerializeField] private DragTarget _dragTarget;
     public DragTarget DragTarget => _dragTarget;
@@ -24,6 +25,8 @@ public class SwappableCereal : Draggable
                 //swap locations
                 _sisterCereal.MoveToTransform(_sisterCereal.DragTarget.transform);
                 _sisterCereal.ChangeInputState(false);
+                
+                _soundService.PlaySoundEffect(SoundService.SoundEffects.Good2);
         
                 ChangeInputState(false);
                 _promiseTimerService.WaitFor(1f).Then(() => _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.CerealLevel1));
@@ -33,6 +36,11 @@ public class SwappableCereal : Draggable
                 _transform.localPosition = _dragStartPos;
             }
         }
+    }
+
+    protected override void OnStartDrag()
+    {
+        _soundService.PlaySoundEffect(SoundService.SoundEffects.Slushing);
     }
 
     private void MoveToTransform(Transform targetTransform)
