@@ -13,8 +13,10 @@ public class DragTarget : MonoBehaviour
         _dragTransform = GetComponent<Transform>();
     }
 
-    public bool Contains(Transform targetTransform)
+    public bool Contains(Transform targetTransform, bool local = true)
     {
-        return _boxCollider2D.bounds.Contains(new Vector3(targetTransform.localPosition.x, targetTransform.localPosition.y, _dragTransform.localPosition.z));
+        return _boxCollider2D.bounds.Contains(new Vector3(local ? targetTransform.localPosition.x : targetTransform.position.x, 
+                                                                local ? targetTransform.localPosition.y : targetTransform.position.y, 
+                                                                _dragTransform.localPosition.z));
     }
 }

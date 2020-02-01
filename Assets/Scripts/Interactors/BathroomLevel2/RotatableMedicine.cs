@@ -1,12 +1,13 @@
 using UnityEngine;
 using Zenject;
 
-public class RotatableImage : Rotatable
+public class RotatableMedicine : Rotatable
 {
     [Inject] private SceneManagerService _sceneManagerService;
     [Inject] private IPromiseTimerService _promiseTimerService;
-    
+    [Inject] private LevelResolver _resolver;
     private bool _locked = false;
+    public bool Flipped = false;
     
     protected override void OnRotateTarget(float rotationAngle)
     {
@@ -16,7 +17,8 @@ public class RotatableImage : Rotatable
         if (!_locked)
         {
             _locked = true;
-            _promiseTimerService.WaitFor(1f).Then(() => _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.GalleryLevel1));
+            Flipped = true;
+            _resolver.Resolve();
         }
     }
 }

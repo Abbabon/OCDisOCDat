@@ -8,8 +8,8 @@ public enum ScenesEnum
     GalleryLevel1=5,
     GalleryLevel2=6,
     GalleryLevel3=7,
-    Level7=8,
-    Level8=9,
-    Level9=10,
+    BathroomLevel1=8,
+    BathroomLevel2=9,
+    BathroomLevel3=10,
     Level10=11
 }

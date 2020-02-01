@@ -9,15 +9,30 @@ EditorBuildSettings:
     path: Assets/Scenes/BootstrapScene.unity
     guid: 2d8f351fd1b97470eaaff19cbc45d47e
   - enabled: 1
-    path: Assets/Scenes/GameStarter.unity
+    path: Assets/Scenes/_GameStarter.unity
     guid: 98a719fd6e8874e71aeab5fa9af7c793
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/SlipperLevel1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
+    path: Assets/Scenes/SlipperLevel2.unity
     guid: 7a428af9f01ed402eb9fb73d347de06b
   - enabled: 1
-    path: Assets/Scenes/Level3.unity
+    path: Assets/Scenes/SlipperLevel3.unity
     guid: 5446ade3842d940a38a915ba65a61297
+  - enabled: 1
+    path: Assets/Scenes/GalleryLevel1.unity
+    guid: eb4e000aaee93478083e161df52c9a9b
+  - enabled: 1
+    path: Assets/Scenes/GalleryLevel2.unity
+    guid: 51ce2de65461448e58dd4c096b90f5e1
+  - enabled: 1
+    path: Assets/Scenes/GalleryLevel3.unity
+    guid: 351e12eeb4dac40f8a9883f633cfa1c4
+  - enabled: 1
+    path: Assets/Scenes/BathroomLevel1.unity
+    guid: 82265bbf7f7aa42b7b570d0ab16195c3
+  - enabled: 1
+    path: Assets/Scenes/BathroomLevel2.unity
+    guid: 5a83a3f3952934c068ae3c63bb17ae14
   m_configObjects: {}

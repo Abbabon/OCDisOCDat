@@ -16,7 +16,7 @@ public class RotatableImageTwo : Rotatable
         if (!_locked)
         {
             _locked = true;
-            _promiseTimerService.WaitFor(1f).Then(() => _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.Level7));
+            _promiseTimerService.WaitFor(1f).Then(() => _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.GalleryLevel3));
         }
     }
 }
