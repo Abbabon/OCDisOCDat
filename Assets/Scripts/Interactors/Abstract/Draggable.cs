@@ -6,7 +6,8 @@ using Vector3 = UnityEngine.Vector3;
 
 public abstract class Draggable : MonoBehaviour
 {
-    private  Vector3 _clickStartPos;
+    private Vector3 _clickStartPos;
+    protected Vector3 _dragStartPos;
     private  bool _isBeingHeld;
     protected  bool _inputEnabled = true;
 
@@ -17,9 +18,6 @@ public abstract class Draggable : MonoBehaviour
 
     [Inject] 
     private Camera _mainCamera;
-
-    [Inject] 
-    private DragTarget _dragTarget;
 
     private void Start()
     {
@@ -50,6 +48,7 @@ public abstract class Draggable : MonoBehaviour
 
     private void StartDrag()
     {
+        _dragStartPos = _transform.localPosition;
         var mousePos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
         _clickStartPos = mousePos - _transform.localPosition;
         _isBeingHeld = true;
@@ -58,14 +57,7 @@ public abstract class Draggable : MonoBehaviour
     {
         _isBeingHeld = false;
         
-        //TODO: any callback that needs to be performed when releasing the object? Check if the position is inside the position
-        if (_dragTarget != null)
-        {
-            if (_dragTarget.Contains(_transform))
-            {
-                OnDrag(_dragTarget.DragTransform);
-            }
-        }
+        OnDrag();
     }
 
     private void OnMouseUp()
@@ -73,7 +65,7 @@ public abstract class Draggable : MonoBehaviour
         StopDrag();
     }
 
-    protected virtual void OnDrag(Transform dragTransform)
+    protected virtual void OnDrag()
     {
         
     }

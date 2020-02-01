@@ -1,7 +1,10 @@
 using UnityEngine;
+using Zenject;
 
-public class RotatableSquare : Rotatable
+public class RotatableImage : Rotatable
 {
+    [Inject] private SceneManagerService _sceneManagerService;
+    [Inject] private IPromiseTimerService _promiseTimerService;
     private bool _locked = false;
     
     protected override void OnRotateTarget(float rotationAngle)
@@ -12,7 +15,7 @@ public class RotatableSquare : Rotatable
         if (!_locked)
         {
             _locked = true;
-            Debug.Log("heeeerrre");
+            _promiseTimerService.WaitFor(1f).Then(() => _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.GalleryLevel1));
         }
     }
 }

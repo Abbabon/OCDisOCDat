@@ -15,6 +15,6 @@ public class DragTarget : MonoBehaviour
 
     public bool Contains(Transform targetTransform)
     {
-        return _boxCollider2D.bounds.Contains(new Vector2(targetTransform.localPosition.x, targetTransform.localPosition.y));
+        return _boxCollider2D.bounds.Contains(new Vector3(targetTransform.localPosition.x, targetTransform.localPosition.y, _dragTransform.localPosition.z));
     }
 }
