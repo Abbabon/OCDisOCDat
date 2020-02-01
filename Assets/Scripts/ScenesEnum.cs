@@ -11,5 +11,10 @@ public enum ScenesEnum
     BathroomLevel1=8,
     BathroomLevel2=9,
     BathroomLevel3=10,
-    Level10=11
+    CarsLevel1=11,
+    CarsLevel2=12,
+    CarsLevel3=13,
+    CerealLevel1=14,
+    CerealLevel2=15,
+    CerealLevel3=16
 }

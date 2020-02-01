@@ -2,12 +2,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
 
-public class SwappableImage : Draggable
+public class SwappableCar : Draggable
 {
     [Inject] private SceneManagerService _sceneManagerService;
     [Inject] private IPromiseTimerService _promiseTimerService;
 
-    [SerializeField] private SwappableImage _sisterImage;
+    [SerializeField] private SwappableCar _sisterCar;
     [SerializeField] private DragTarget _dragTarget;
     public DragTarget DragTarget => _dragTarget;
 
@@ -22,11 +22,11 @@ public class SwappableImage : Draggable
                                                         _transform.localPosition.z);
 
                 //swap locations
-                _sisterImage.MoveToTransform(_sisterImage.DragTarget.transform);
-                _sisterImage.ChangeInputState(false);
+                _sisterCar.MoveToTransform(_sisterCar.DragTarget.transform);
+                _sisterCar.ChangeInputState(false);
         
                 ChangeInputState(false);
-                _promiseTimerService.WaitFor(1f).Then(() => _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.GalleryLevel2));
+                _promiseTimerService.WaitFor(1f).Then(() => _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.CarsLevel2));
             }
             else
             {

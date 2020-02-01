@@ -391,7 +391,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0ac05a5bdc6384658b5d66136d53d004,
+      objectReference: {fileID: 21300000, guid: 7e7f876d1ca8a4b9a92885283f95e21a,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb7d091edd33441579e062efbe60aad0, type: 3}
@@ -413,8 +413,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8424ba0df88b4c33a7c62877e786d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _regularSprite: {fileID: 21300000, guid: 7eb64e187ec9a47b096c61a97aa10c4a, type: 3}
-  _flippedSprite: {fileID: 21300000, guid: 0ac05a5bdc6384658b5d66136d53d004, type: 3}
+  _regularSprite: {fileID: 21300000, guid: f1a199672dc844ff4a6792c918683b4d, type: 3}
+  _flippedSprite: {fileID: 21300000, guid: 7e7f876d1ca8a4b9a92885283f95e21a, type: 3}
   Flipped: 1
 --- !u!1 &2105170175
 GameObject:
@@ -525,7 +525,7 @@ PrefabInstance:
     - target: {fileID: 980032929, guid: f6b0ed9565000448dba140badb18dc6c, type: 3}
       propertyPath: _flippedSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0ac05a5bdc6384658b5d66136d53d004,
+      objectReference: {fileID: 21300000, guid: 7e7f876d1ca8a4b9a92885283f95e21a,
         type: 3}
     - target: {fileID: 1705653346369906252, guid: f6b0ed9565000448dba140badb18dc6c,
         type: 3}

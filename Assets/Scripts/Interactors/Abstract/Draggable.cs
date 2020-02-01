@@ -11,17 +11,23 @@ public abstract class Draggable : MonoBehaviour
     private  bool _isBeingHeld;
     protected  bool _inputEnabled = true;
 
+    [SerializeField] protected bool _checkContinuously;
+
     protected Transform _transform;
 
     [SerializeField] private bool limitXAxis;
     [SerializeField] private bool limitYAxis;
 
+    protected SpriteRenderer _spriteRenderer;
+    public SpriteRenderer SpriteRenderer => _spriteRenderer;
+    
     [Inject] 
     private Camera _mainCamera;
 
     private void Start()
     {
         _transform = GetComponent<Transform>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -35,6 +41,11 @@ public abstract class Draggable : MonoBehaviour
                                         limitYAxis? localPosition.y : newPos.y, 
                                             localPosition.z);
             _transform.localPosition = localPosition;
+
+            if (_checkContinuously)
+            {
+                OnDrag();
+            }
         }
     }
 
@@ -57,7 +68,8 @@ public abstract class Draggable : MonoBehaviour
     {
         _isBeingHeld = false;
         
-        OnDrag();
+        if (!_checkContinuously)
+            OnDrag();
     }
 
     private void OnMouseUp()

@@ -205,7 +205,7 @@ PrefabInstance:
     - target: {fileID: 980032929, guid: f6b0ed9565000448dba140badb18dc6c, type: 3}
       propertyPath: _flippedSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0ac05a5bdc6384658b5d66136d53d004,
+      objectReference: {fileID: 21300000, guid: 7e7f876d1ca8a4b9a92885283f95e21a,
         type: 3}
     - target: {fileID: 980032929, guid: f6b0ed9565000448dba140badb18dc6c, type: 3}
       propertyPath: Flipped
@@ -285,7 +285,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0ac05a5bdc6384658b5d66136d53d004,
+      objectReference: {fileID: 21300000, guid: 7e7f876d1ca8a4b9a92885283f95e21a,
         type: 3}
     - target: {fileID: 1705653346369906288, guid: f6b0ed9565000448dba140badb18dc6c,
         type: 3}
