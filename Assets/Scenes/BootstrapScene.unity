@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 707025465}
   - component: {fileID: 707025466}
   - component: {fileID: 707025468}
+  - component: {fileID: 707025469}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -312,6 +313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerScore: {fileID: 707025466}
   _sceneManagerService: {fileID: 707025468}
+  _soundService: {fileID: 0}
 --- !u!114 &707025468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,3 +326,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 974d8782d42d4f82b71afc508d9cedcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &707025469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707025462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 114e72220e8d45fc97a3301f400fd860, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _musicSource: {fileID: 0}
+  _sfxSource: {fileID: 0}
+  _menuMusic: {fileID: 0}
+  _gameMusic: {fileID: 0}
