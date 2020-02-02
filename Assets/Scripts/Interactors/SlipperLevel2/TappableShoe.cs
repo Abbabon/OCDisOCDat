@@ -5,10 +5,6 @@ using Zenject;
 
 public class TappableShoe : Tappable
 {
-    [Inject] private SceneManagerService _sceneManagerService;
-    [Inject] private LevelResolver _levelResolver;
-    [Inject] private SoundService _soundService;
-
     [SerializeField] private Sprite _regularSprite;
     [SerializeField] private Sprite _flippedSprite;
 
@@ -16,6 +12,20 @@ public class TappableShoe : Tappable
 
     public bool Flipped;
 
+    private SceneManagerService _sceneManagerService;
+    private IPromiseTimerService _promiseTimerService;
+    private SoundService _soundService;
+    private LevelResolver _levelResolver;
+
+    [Inject]
+    private void Initialize(SceneManagerService sceneManagerService, IPromiseTimerService promiseTimerService, SoundService soundService, LevelResolver resolver)
+    {
+        _sceneManagerService = sceneManagerService;
+        _promiseTimerService = promiseTimerService;
+        _soundService = soundService;
+        _levelResolver = resolver;
+    }
+    
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();

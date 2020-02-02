@@ -1,7 +1,7 @@
 public enum ScenesEnum
 {
     Bootstrap=0,
-    GameStarter=1,
+    GameStart=1,
     SlippersLevel1=2,
     CerealLevel1=3,
     BathroomLevel1=4,
@@ -16,5 +16,6 @@ public enum ScenesEnum
     CerealLevel3=13,
     BathroomLevel3=14,
     GalleryLevel3=15,
-    CarsLevel3=16
+    CarsLevel3=16,
+    Credits=17
 }

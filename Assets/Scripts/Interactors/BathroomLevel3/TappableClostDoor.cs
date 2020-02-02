@@ -6,13 +6,22 @@ using Zenject;
 
 public class TappableClostDoor : Tappable
 {
-    [Inject] private SceneManagerService _sceneManagerService;
-    [Inject] private IPromiseTimerService _promiseTimerService;
-    [Inject] private SoundService _soundService;
-    
+
     [SerializeField] private GameObject _closedDoor;
     private SpriteRenderer _spriteRenderer;
     private bool _locked = false;
+    
+    private SceneManagerService _sceneManagerService;
+    private IPromiseTimerService _promiseTimerService;
+    private SoundService _soundService;
+    
+    [Inject]
+    private void Initialize(SceneManagerService sceneManagerService, IPromiseTimerService promiseTimerService, SoundService soundService)
+    {
+        _sceneManagerService = sceneManagerService;
+        _promiseTimerService = promiseTimerService;
+        _soundService = soundService;
+    }
     
     private void Start()
     {

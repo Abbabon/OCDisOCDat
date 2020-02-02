@@ -8,8 +8,8 @@ public abstract class Draggable : MonoBehaviour
 {
     private Vector3 _clickStartPos;
     protected Vector3 _dragStartPos;
-    private  bool _isBeingHeld;
-    protected  bool _inputEnabled = true;
+    private bool _isBeingHeld;
+    protected bool _inputEnabled = true;
 
     [SerializeField] protected bool _checkContinuously;
 
@@ -20,10 +20,15 @@ public abstract class Draggable : MonoBehaviour
 
     protected SpriteRenderer _spriteRenderer;
     public SpriteRenderer SpriteRenderer => _spriteRenderer;
-    
-    [Inject] 
-    private Camera _mainCamera;
 
+    private Camera _mainCamera;
+    
+    [Inject]
+    private void Initialize(Camera mainCamera)
+    {
+        _mainCamera = mainCamera;
+    }
+    
     private void Start()
     {
         _transform = GetComponent<Transform>();

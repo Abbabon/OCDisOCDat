@@ -3,10 +3,19 @@ using Zenject;
 
 public class RotatableMedicine : Rotatable
 {
-    [Inject] private SceneManagerService _sceneManagerService;
-    [Inject] private IPromiseTimerService _promiseTimerService;
-    [Inject] private LevelResolver _resolver;
-    [Inject] private SoundService _soundService;
+    private SceneManagerService _sceneManagerService;
+    private IPromiseTimerService _promiseTimerService;
+    private SoundService _soundService;
+    private LevelResolver _resolver;
+    
+    [Inject]
+    private void Initialize(SceneManagerService sceneManagerService, IPromiseTimerService promiseTimerService, SoundService soundService, LevelResolver levelResolver)
+    {
+        _sceneManagerService = sceneManagerService;
+        _promiseTimerService = promiseTimerService;
+        _soundService = soundService;
+        _resolver = levelResolver;
+    }
     
     private bool _locked = false;
     public bool Flipped = false;

@@ -57,6 +57,6 @@ EditorBuildSettings:
     path: Assets/Scenes/ParkingLevel3.unity
     guid: 926a1044ab3f646f1af31d5841bedc3f
   - enabled: 1
-    path: Assets/Scenes/z_Credits.unity
-    guid: 697027974ff00400c93b55dc6559966a
+    path: Assets/Scenes/z_Creditz.unity
+    guid: 644d2f00a219c4327904334162dbff80
   m_configObjects: {}

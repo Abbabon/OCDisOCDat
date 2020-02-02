@@ -4,16 +4,24 @@ using Zenject;
 
 public class SwappableCarTwo : Draggable
 {
-    [Inject] private SceneManagerService _sceneManagerService;
-    [Inject] private IPromiseTimerService _promiseTimerService;
-    [Inject] private SoundService _soundService;
-    
     [SerializeField] private SwappableCarTwo _sisterCar;
     [SerializeField] private DragTarget _dragTarget;
-
     public DragTarget DragTarget => _dragTarget;
-
+    
     [SerializeField] private GameObject _crashObject;
+    
+    private SceneManagerService _sceneManagerService;
+    private IPromiseTimerService _promiseTimerService;
+    private SoundService _soundService;
+
+
+    [Inject]
+    private void Initialize(SceneManagerService sceneManagerService, IPromiseTimerService promiseTimerService, SoundService soundService)
+    {
+        _sceneManagerService = sceneManagerService;
+        _promiseTimerService = promiseTimerService;
+        _soundService = soundService;
+    }
     
     protected override void OnDrag()
     {

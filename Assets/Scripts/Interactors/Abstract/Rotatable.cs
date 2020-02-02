@@ -1,11 +1,6 @@
 using System;
-using System.Numerics;
-using Boo.Lang;
-using Sirenix.Utilities;
-using TMPro;
 using UnityEngine;
 using Zenject;
-using Vector3 = UnityEngine.Vector3;
 
 public abstract class Rotatable : MonoBehaviour
 {
@@ -16,11 +11,16 @@ public abstract class Rotatable : MonoBehaviour
     protected Transform _transform;
     [SerializeField] private float[] RotateTargetValues;
 
-    [Inject] 
     private Camera _mainCamera;
 
     private Vector3 _screenPos;
     private float _angleOffset;
+    
+    [Inject]
+    private void Initialize(Camera mainCamera)
+    {
+        _mainCamera = mainCamera;
+    }
     
     private void Start()
     {
@@ -33,10 +33,11 @@ public abstract class Rotatable : MonoBehaviour
         {
             if(Input.GetMouseButtonDown(0)) 
             {
-                _screenPos = _mainCamera.WorldToScreenPoint (_transform.position);
+                _screenPos = _mainCamera.WorldToScreenPoint(_transform.position);
                 var v3 = Input.mousePosition - _screenPos;
                 _angleOffset = (Mathf.Atan2(_transform.right.y, _transform.right.x) - Mathf.Atan2(v3.y, v3.x)) * Mathf.Rad2Deg;
             }
+            
             if(Input.GetMouseButton(0)) 
             {
                 var v3 = Input.mousePosition - _screenPos;
@@ -44,13 +45,13 @@ public abstract class Rotatable : MonoBehaviour
                 _transform.eulerAngles = new Vector3(0,0,angle+_angleOffset);  
             }
 
-            RotateTargetValues.ForEach(rotateTargetValue =>
+            for (int i = 0; i < RotateTargetValues.Length; i++)
             {
-                if (Math.Abs(_transform.localRotation.eulerAngles.z - rotateTargetValue) < TOLERANCE)
+                if (Math.Abs(_transform.localRotation.eulerAngles.z - RotateTargetValues[i]) < TOLERANCE)
                 {
-                    OnRotateTarget(rotateTargetValue);
+                    OnRotateTarget(RotateTargetValues[i]);
                 }
-            });
+            }
         }
     }
     

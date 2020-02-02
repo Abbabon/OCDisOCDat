@@ -1,16 +1,23 @@
 using System.Linq;
-using Boo.Lang;
 using UnityEngine;
 using Zenject;
 
 public class BathroomLevel2Resolver : LevelResolver
 {
-    [Inject] private SceneManagerService _sceneManagerService;
-    [Inject] private IPromiseTimerService _promiseTimerService;
-    [Inject] private SoundService _soundService;
 
     [SerializeField] private RotatableMedicine[] medicines;
     
+    private SceneManagerService _sceneManagerService;
+    private IPromiseTimerService _promiseTimerService;
+    private SoundService _soundService;
+    
+    [Inject]
+    private void Initialize(SceneManagerService sceneManagerService, IPromiseTimerService promiseTimerService, SoundService soundService)
+    {
+        _sceneManagerService = sceneManagerService;
+        _promiseTimerService = promiseTimerService;
+        _soundService = soundService;
+    }
 
     public override void Resolve()
     {

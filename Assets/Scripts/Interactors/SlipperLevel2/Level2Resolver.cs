@@ -1,15 +1,21 @@
-using System.Linq;
-using Boo.Lang;
-using UnityEngine;
 using Zenject;
 
 public class Level2Resolver : LevelResolver
 {
-    [Inject] private TappableShoe _shoe;
-    [Inject] private SceneManagerService _sceneManagerService;
-    [Inject] private IPromiseTimerService _promiseTimerService;
-    [Inject] private SoundService _soundService;
-
+    private TappableShoe _shoe;
+    private SceneManagerService _sceneManagerService;
+    private IPromiseTimerService _promiseTimerService;
+    private SoundService _soundService;
+    
+    [Inject]
+    private void Initialize(SceneManagerService sceneManagerService, IPromiseTimerService promiseTimerService, SoundService soundService, TappableShoe shoe)
+    {
+        _sceneManagerService = sceneManagerService;
+        _promiseTimerService = promiseTimerService;
+        _soundService = soundService;
+        _shoe = shoe;
+    }
+    
     public override void Resolve()
     {
         if (!_shoe.Flipped)

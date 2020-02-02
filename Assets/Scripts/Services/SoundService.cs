@@ -25,7 +25,6 @@ public class SoundService : MonoBehaviour
             if (resource != null)
             {
                 _sfx.Add((SoundEffects) soundEffectEnum, resource);
-                Debug.Log($"Loaded {soundEffectEnum.ToString()}");
             }
         }
     }

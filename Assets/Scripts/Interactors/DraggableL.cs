@@ -4,15 +4,20 @@ using Zenject;
 
 public class DraggableL : Draggable
 {
-    [Inject] private SceneManagerService _sceneManagerService;
-    [Inject] private IPromiseTimerService _promiseTimerService;
-    
-    [Inject] private SoundService _soundService;
-    
     [SerializeField] private DragTarget _dragTarget;
-
     [SerializeField] private Sprite _placedSprite;
+
+    private SceneManagerService _sceneManagerService;
+    private IPromiseTimerService _promiseTimerService;
+    private SoundService _soundService;
     
+    [Inject]
+    private void Initialize(SceneManagerService sceneManagerService, IPromiseTimerService promiseTimerService, SoundService soundService)
+    {
+        _sceneManagerService = sceneManagerService;
+        _promiseTimerService = promiseTimerService;
+        _soundService = soundService;
+    }
     
     protected override void OnDrag()
     {
@@ -27,7 +32,11 @@ public class DraggableL : Draggable
                 _spriteRenderer.sprite = _placedSprite;
 
                 ChangeInputState(false);
-                _promiseTimerService.WaitFor(1f).Then(() => _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.GameStarter));
+                _promiseTimerService.WaitFor(1f).Then(() =>
+                {
+                    _sceneManagerService.UnloadScene(ScenesEnum.GameStart);
+                    _sceneManagerService.LoadScene(ScenesEnum.SlippersLevel1);
+                });
             }
             else
             {
