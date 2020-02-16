@@ -455,7 +455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _musicSource: {fileID: 534463984}
   _sfxSource: {fileID: 1829644588}
-  _gameMusic: {fileID: 8300000, guid: f894b5b45062647b088d7560a9387c9c, type: 3}
+  _gameMusic: {fileID: 8300000, guid: 5f193909bd97d46b7933fa2fc9097832, type: 3}
 --- !u!1 &1141517653
 GameObject:
   m_ObjectHideFlags: 0

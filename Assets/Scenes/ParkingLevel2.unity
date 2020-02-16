@@ -463,6 +463,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car4
       objectReference: {fileID: 0}
+    - target: {fileID: 104105091587406796, guid: 183955b58f19941c8963e22d91bb7591,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 104105091587406800, guid: 183955b58f19941c8963e22d91bb7591,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -731,7 +736,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &104105091628133885
 Transform:
   m_ObjectHideFlags: 0
@@ -889,6 +894,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car2
       objectReference: {fileID: 0}
+    - target: {fileID: 104105091587406796, guid: 183955b58f19941c8963e22d91bb7591,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 104105091587406800, guid: 183955b58f19941c8963e22d91bb7591,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -985,6 +995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63719194c074cc7b9aac637ca7003e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _checkContinuously: 0
   limitXAxis: 1
   limitYAxis: 1
   _sisterCar: {fileID: 5351189804877954894}
@@ -1046,7 +1057,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63719194c074cc7b9aac637ca7003e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limitXAxis: 1
+  _checkContinuously: 0
+  limitXAxis: 0
   limitYAxis: 0
   _sisterCar: {fileID: 2378599956051800865}
   _dragTarget: {fileID: 8425536047027477775}
@@ -1058,7 +1070,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5351189804877954892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -0.94, z: -1}
+  m_LocalPosition: {x: 0.264, y: -0.44, z: -1}
   m_LocalScale: {x: 0.426, y: 0.426, z: 0}
   m_Children: []
   m_Father: {fileID: 0}

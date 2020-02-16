@@ -13,8 +13,7 @@ public class SwappableCarTwo : Draggable
     private SceneManagerService _sceneManagerService;
     private IPromiseTimerService _promiseTimerService;
     private SoundService _soundService;
-
-
+    
     [Inject]
     private void Initialize(SceneManagerService sceneManagerService, IPromiseTimerService promiseTimerService, SoundService soundService)
     {
@@ -44,10 +43,14 @@ public class SwappableCarTwo : Draggable
                 _sisterCar.ChangeInputState(false);
                 _promiseTimerService.WaitFor(2f).Then(() => _sceneManagerService.UnloadSceneAndLoadNext(ScenesEnum.CarsLevel3));
             }
-            else
-            {
-                _transform.localPosition = _dragStartPos;
-            }
+        }
+    }
+
+    protected override void OnEndDrag()
+    {
+        if (_inputEnabled)
+        {
+            _transform.localPosition = _dragStartPos;
         }
     }
 

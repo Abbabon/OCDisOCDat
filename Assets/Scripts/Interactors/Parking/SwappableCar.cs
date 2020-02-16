@@ -11,8 +11,7 @@ public class SwappableCar : Draggable
     private SceneManagerService _sceneManagerService;
     private IPromiseTimerService _promiseTimerService;
     private SoundService _soundService;
-
-
+    
     [Inject]
     private void Initialize(SceneManagerService sceneManagerService, IPromiseTimerService promiseTimerService, SoundService soundService)
     {
@@ -50,6 +49,9 @@ public class SwappableCar : Draggable
 
     private void MoveToTransform(Transform targetTransform)
     {
-        _transform.localPosition = targetTransform.localPosition;
+        if (_transform != null)
+        {
+            _transform.localPosition = targetTransform.localPosition;
+        }
     }
 }
